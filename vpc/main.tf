@@ -7,7 +7,8 @@ tags               = {
 }
 }
 
-resource "aws_vpc_ipv4_cidr_block_association" "secondary_cidr" {
+resource "aws_vpc_ipv4_cidr_block_association" "private_cidr" {
+  count      = length(var.vpc_private_cidr)
   vpc_id     = aws_vpc.vpc.id
-  cidr_block = var.vpc_private_cidr
+  cidr_block = element(var.vpc_private_cidr, count.index)
 }
