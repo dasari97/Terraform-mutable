@@ -5,3 +5,4 @@ variable "subnet_public_cidr" {}
 variable "subnet_private_cidr" {}
 variable "AZS" {}
 variable "default_vpc" {}
+variable "default_vpc_cidr" {}
