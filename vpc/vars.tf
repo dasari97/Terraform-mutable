@@ -1,3 +1,6 @@
 variable "env" {}
 variable "vpc_public_cidr" {}
 variable "vpc_private_cidr" {}
+variable "subnet_public_cidr" {}
+variable "subnet_private_cidr" {}
+variable "AZS" {}
