@@ -4,6 +4,6 @@ resource "aws_subnet" "public" {
   cidr_block = element(var.subnet_public_cidr, count.index)
 
   tags = {
-    Name = "public_subnet_${count.index)+1"
+    Name = "public_subnet_${count.index +1)"
   }
 }
