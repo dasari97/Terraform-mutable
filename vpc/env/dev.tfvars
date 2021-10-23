@@ -6,4 +6,4 @@ subnet_private_cidr = ["10.0.0.0/23", "10.0.2.0/23" ]
 AZS                 = ["us-east-1a", "us-east-1b"]
 default_vpc         = "vpc-7f384202"
 default_vpc_cidr    = "172.31.0.0/16"
-
+default_RT_id       = "rtb-46dc1d37"
