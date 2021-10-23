@@ -1,4 +1,4 @@
-resource "aws_subnet" "public_${var.env}" {
+resource "aws_subnet" "public" {
   count      = length(var.subnet_public_cidr)
   vpc_id     = aws_vpc.vpc.id
   cidr_block = element(var.subnet_public_cidr, count.index)
@@ -9,7 +9,7 @@ resource "aws_subnet" "public_${var.env}" {
   }
 }
 
-resource "aws_subnet" "private_${var.env}" {
+resource "aws_subnet" "private" {
   count      = length(var.subnet_private_cidr)
   vpc_id     = aws_vpc.vpc.id
   cidr_block = element(var.subnet_private_cidr, count.index)
