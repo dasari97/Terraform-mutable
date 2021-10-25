@@ -103,3 +103,4 @@ resource "aws_route" "default_vpc_rt_public" {
   destination_cidr_block    = var.vpc_public_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.peer1.id
 }
+
