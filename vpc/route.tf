@@ -10,11 +10,12 @@ resource "aws_route_table" "public_routeTable" {
       destination_prefix_list_id = ""
       egress_only_gateway_id     = ""
       instance_id                = ""
-      #ipv6_cidr_block            = ""
+      ipv6_cidr_block            = ""
       local_gateway_id           = ""
       nat_gateway_id             = ""
       network_interface_id       = ""
       transit_gateway_id         = ""
+      vpc_endpoint_id            = ""
     }
     
     ]
@@ -36,11 +37,12 @@ resource "aws_route_table" "private_routeTable" {
       destination_prefix_list_id = ""
       egress_only_gateway_id     = ""
       instance_id                = ""
-      #ipv6_cidr_block            = ""
+      ipv6_cidr_block            = ""
       local_gateway_id           = ""
       nat_gateway_id             = ""
       network_interface_id       = ""
       transit_gateway_id         = ""
+      vpc_endpoint_id            = ""
     }
   ]
 
