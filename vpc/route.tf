@@ -42,6 +42,9 @@ resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.private_routeTable.id
 }
 
-output "out" {
-  value = local.all_vpc_cidr
+resource "aws_route" "default_vpc_rt" {
+  count                     = length(local.all_vpc_cidr)
+  route_table_id            = var.default_RT_id
+  destination_cidr_block    = element(local.all_vpc_cidr ,count.index)
+  vpc_peering_connection_id = aws_vpc_peering_connection.peer1.id
 }
