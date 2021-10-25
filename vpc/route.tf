@@ -5,6 +5,22 @@ resource "aws_route_table" "public_routeTable" {
    {
       cidr_block                 = var.default_vpc_cidr
       vpc_peering_connection_id  = aws_vpc_peering_connection.peer1.id
+      gateway_id                 = ""
+      carrier_gateway_id         = ""
+      destination_prefix_list_id = ""
+      egress_only_gateway_id     = ""
+      instance_id                = ""
+      ipv6_cidr_block            = ""
+      local_gateway_id           = ""
+      nat_gateway_id             = ""
+      network_interface_id       = ""
+      transit_gateway_id         = ""
+      vpc_endpoint_id            = ""
+    },
+    
+    {
+      cidr_block                 = "0.0.0.0/0"
+      vpc_peering_connection_id  = ""
       gateway_id                 = aws_internet_gateway.IGW.id
       carrier_gateway_id         = ""
       destination_prefix_list_id = ""
