@@ -30,18 +30,6 @@ resource "aws_route" "Private-peer-add" {
   vpc_peering_connection_id = aws_vpc_peering_connection.peer1.id
 }
 
-resource "aws_route" "default_to_public" {
-  route_table_id            = var.default_RT_id
-  destination_cidr_block    = var.vpc_public_cidr
-  vpc_peering_connection_id = aws_vpc_peering_connection.peer1.id
-}
-
-resource "aws_route" "default_to_private" {
-  route_table_id            = var.default_RT_id
-  destination_cidr_block    = var.vpc_private_cidr[0]
-  vpc_peering_connection_id = aws_vpc_peering_connection.peer1.id
-}
-
 resource "aws_route_table_association" "public" {
   count          = length(aws_subnet.public.*.id)
   subnet_id      = element(aws_subnet.public.*.id, count.index)
