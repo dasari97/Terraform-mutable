@@ -77,9 +77,9 @@ resource "null_resource" "mongodb" {
     }
     
     inline = [
-      "yum install python3-pip -y",
-      "pip3 install pip --upgrade",
-      "pip3 install ansible==4.1.0"
+      "sudo yum install python3-pip -y",
+      "sudo pip3 install pip --upgrade",
+      "sudo pip3 install ansible==4.1.0"
     ]
   }
   
