@@ -19,6 +19,7 @@ resource "aws_ec2_tag" "mongodb" {
 resource "aws_security_group" "mongodb" {
   name        = "mongodb-${var.env}"
   description = "Allow mongodb"
+  vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID 
 
   ingress = [
     {
