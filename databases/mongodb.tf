@@ -66,3 +66,16 @@ resource "aws_security_group" "mongodb" {
     Name = "mongodb-${var.env}"
   }
 }
+
+resource "null_resource" "mongodb" {
+  provisioner "remote-exec" {
+    connection {
+      type     = "ssh"
+      user     = data.Dev_secret.ssh_user
+      password = data.Dev_secret.ssh_pass
+      host     = aws_spot_instance_request.mongodb.private_ip
+    }
+  }
+  
+}
+
