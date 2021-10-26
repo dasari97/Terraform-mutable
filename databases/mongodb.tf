@@ -75,6 +75,11 @@ resource "null_resource" "mongodb" {
       password = jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["ssh_pass"]
       host     = aws_spot_instance_request.mongodb.private_ip
     }
+    
+    lnline = [
+      "uname"
+      "uptime"
+    ]
   }
   
 }
