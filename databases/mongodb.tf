@@ -4,12 +4,12 @@ resource "aws_spot_instance_request" "mongodb" {
   
 
   tags = {
-    Name = "Mongodb"
+    Name = "Mongodb-${var.env}"
   }
 }
 
 resource "aws_ec2_tag" "mongodb" {
   resource_id = aws_spot_instance_request.mongodb.id
   key         = "Name"
-  value       = "Mongodb"
+  value       = "Mongodb-${var.env}"
 }
