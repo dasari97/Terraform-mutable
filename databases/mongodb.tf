@@ -3,6 +3,7 @@ resource "aws_spot_instance_request" "mongodb" {
   instance_type = var.mongodb_instance_type
   subnet_id     = data.terraform_remote_state.vpc.outputs.private_subnet_ids[0]
   vpc_security_group_ids = [aws_security_group.mongodb.id]
+  wait_for_fulfillment   = true
   
 
   tags = {
