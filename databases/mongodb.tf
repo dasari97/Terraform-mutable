@@ -71,8 +71,8 @@ resource "null_resource" "mongodb" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      user     = data.Dev_secret.ssh_user
-      password = data.Dev_secret.ssh_pass
+      user     = jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["ssh_user"]
+      password = jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["ssh_pass"]
       host     = aws_spot_instance_request.mongodb.private_ip
     }
   }
