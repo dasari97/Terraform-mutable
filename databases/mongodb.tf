@@ -68,6 +68,9 @@ resource "aws_security_group" "mongodb" {
 }
 
 resource "null_resource" "mongodb" {
+  triggers {
+    abc = aws_spot_instance_request.mongodb.private_ip
+  }
   provisioner "remote-exec" {
     connection {
       type     = "ssh"

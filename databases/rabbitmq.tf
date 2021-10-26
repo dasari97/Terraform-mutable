@@ -68,6 +68,9 @@ resource "aws_security_group" "rabbitmq" {
 }
 
 resource "null_resource" "rabbitmq" {
+  triggers {
+    abc = aws_spot_instance_request.mongodb.private_ip
+  }
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
