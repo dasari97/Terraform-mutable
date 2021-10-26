@@ -76,7 +76,7 @@ resource "null_resource" "mongodb" {
       host     = aws_spot_instance_request.mongodb.private_ip
     }
     
-    lnline = [
+    inline = [
       "uname",
       "uptime"
     ]
