@@ -18,11 +18,11 @@ data "aws_secretsmanager_secret" "Dev_secret" {
   name = var.env
 }
 
-data "aws_secretsmanager_secret_version" "secret" {
+data "aws_secretsmanager_secret_version" "Dev_secret" {
   secret_id = data.aws_secretsmanager_secret.Dev_secret.id
 }
 
 output "secret" {
-  value = aws_secretsmanager_secret_version.secret
+  value = data.aws_secretsmanager_secret_version.Dev_secret
   sensitive = true
 }
