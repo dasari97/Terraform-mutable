@@ -77,7 +77,7 @@ resource "null_resource" "mongodb" {
     }
     
     lnline = [
-      "uname"
+      "uname",
       "uptime"
     ]
   }
