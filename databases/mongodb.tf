@@ -1,6 +1,6 @@
 resource "aws_spot_instance_request" "mongodb" {
   ami           = data.aws_ami.ami.id
-  instance_type = var.instance_type
+  instance_type = var.mongodb_instance_type
   
 
   tags = {
