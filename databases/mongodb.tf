@@ -68,9 +68,14 @@ resource "aws_security_group" "mongodb" {
 }
 
 resource "null_resource" "mongodb" {
-  triggers = {
-    abc = timestamp()
-  }
+  #triggers = {
+   # abc = timestamp()
+  #}
+  
+  #triggers = {
+   # abc = aws_spot_instance_request.mongodb.private_ip
+  #}
+  
   provisioner "remote-exec" {
     connection {
       type     = "ssh"

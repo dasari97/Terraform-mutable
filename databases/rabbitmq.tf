@@ -68,9 +68,14 @@ resource "aws_security_group" "rabbitmq" {
 }
 
 resource "null_resource" "rabbitmq" {
-  triggers = {
-    abc = timestamp()
-  }
+  #triggers = {
+   # abc = timestamp()
+  #}
+  
+  #triggers = {
+   # abc = aws_spot_instance_request.rabbitmq.private_ip
+  #}
+  
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
