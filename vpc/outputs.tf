@@ -23,7 +23,7 @@ output "private_subnet_cidrs" {
 }
 
 output "default_vpc_id" {
-    value = var.default_vpc_id
+    value = var.default_vpc
 }
 
 output "public_vpc_cidr" {
