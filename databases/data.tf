@@ -21,8 +21,3 @@ data "aws_secretsmanager_secret" "Dev_secret" {
 data "aws_secretsmanager_secret_version" "Dev_secret" {
   secret_id = data.aws_secretsmanager_secret.Dev_secret.id
 }
-
-output "secret" {
-  value = data.aws_secretsmanager_secret_version.Dev_secret
-  sensitive = true
-}
