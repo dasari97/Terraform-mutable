@@ -68,7 +68,7 @@ resource "aws_security_group" "rabbitmq" {
 }
 
 resource "null_resource" "rabbitmq" {
-  triggers {
+  triggers = {
     abc = timestamp()
   }
   provisioner "remote-exec" {

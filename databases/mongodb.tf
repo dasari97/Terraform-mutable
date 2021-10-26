@@ -68,7 +68,7 @@ resource "aws_security_group" "mongodb" {
 }
 
 resource "null_resource" "mongodb" {
-  triggers {
+  triggers = {
     abc = timestamp()
   }
   provisioner "remote-exec" {
