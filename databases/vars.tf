@@ -1,2 +1,2 @@
 variable "env" {}
-variable "instance_type" {}
+variable "mongodb_instance_type" {}

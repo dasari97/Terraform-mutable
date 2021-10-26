@@ -1,2 +1,2 @@
 env = "dev"
-instance_type = "t2.micro"
+mongodb_instance_type = "t2.micro"
