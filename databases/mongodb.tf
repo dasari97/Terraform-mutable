@@ -26,7 +26,7 @@ resource "aws_security_group" "mongodb" {
       from_port        = 22
       to_port          = 22
       protocol         = "tcp"
-      cidr_blocks      = local.vpc_cidr
+      cidr_blocks      = [local.vpc_cidr]
       ipv6_cidr_blocks = []
       prefix_list_ids  = []
       self             = false
