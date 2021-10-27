@@ -79,14 +79,6 @@ resource "null_resource" "MySQL" {
         
          EOT
     }
-
-    connection {
-    type     = "ssh"
-    user     = "root"
-    password = "${var.root_password}"
-    host     = "${var.host}"
-  }
-}
 }
 
  
