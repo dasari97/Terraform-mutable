@@ -10,6 +10,7 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_subnet" "private" {
+  depends_on = [aws_route_table.private_routeTable]
   count      = length(var.subnet_private_cidr)
   vpc_id     = aws_vpc.vpc.id
   cidr_block = element(var.subnet_private_cidr, count.index)
