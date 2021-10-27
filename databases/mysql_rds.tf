@@ -60,16 +60,11 @@ resource "aws_db_instance" "mysql" {
   identifier             = "mysql-${var.env}"
 }
 
-/*resource "aws_route53_record" "mysql" {
+resource "aws_route53_record" "mysql" {
   zone_id = data.aws_route53_zone.route53.zone_id
   name    = "mysql-${var.env}.krishna.roboshop"
   type    = "CNAME"
   ttl     = "300"
-  records = [aws_db_instance.mysql.private_ip]
-}*/
-
-output "a" {
-    value = aws_db_instance.mysql.endpoint
-    sensitive = true
+  records = [aws_db_instance.mysql.address]
 }
  

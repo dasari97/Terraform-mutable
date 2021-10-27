@@ -58,7 +58,7 @@ resource "aws_route53_record" "redis" {
   name    = "redis-${var.env}.krishna.roboshop"
   type    = "CNAME"
   ttl     = "300"
-  records = [aws_elasticache_cluster.redis.private_ip]
+  records = [aws_elasticache_cluster.redis.cache_nodes[0].address]
 }
 
 */
