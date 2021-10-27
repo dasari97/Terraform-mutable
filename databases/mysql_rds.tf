@@ -70,7 +70,7 @@ resource "aws_route53_record" "mysql" {
 
 resource "null_resource" "MySQL" {
 triggers = {
-    A = timestamp
+    A = timestamp()
 }
     provisioner "local-exec" {
         command = <<EOT
