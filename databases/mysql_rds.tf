@@ -61,5 +61,5 @@ resource "aws_db_instance" "mysql" {
 }
 
 output "route" {
-    value = data.aws_route53_zone.Route53
+    value = data.aws_route53_delegation_set.Route53
 }
