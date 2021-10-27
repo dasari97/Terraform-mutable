@@ -94,6 +94,12 @@ resource "null_resource" "rabbitmq" {
   
 }
 
-
+resource "aws_route53_record" "rabbitmq" {
+  zone_id = data.aws_route53_zone.route53.zone_id
+  name    = "rabbitmq-${var.env}.krishna.roboshop"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_spot_instance_request.rabbitmq.private_ip]
+}
 
 */

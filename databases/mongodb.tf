@@ -94,4 +94,12 @@ resource "null_resource" "mongodb" {
   
 }
 
+resource "aws_route53_record" "mongodb" {
+  zone_id = data.aws_route53_zone.route53.zone_id
+  name    = "mongodb-${var.env}.krishna.roboshop"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_spot_instance_request.mongodb.private_ip]
+}
+
 */

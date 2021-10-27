@@ -53,4 +53,12 @@ resource "aws_security_group" "redis" {
   }
 }
 
+resource "aws_route53_record" "redis" {
+  zone_id = data.aws_route53_zone.route53.zone_id
+  name    = "redis-${var.env}.krishna.roboshop"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_elasticache_cluster.redis.private_ip]
+}
+
 */
