@@ -63,3 +63,4 @@ resource "aws_db_instance" "mysql" {
 output "route" {
     value = data.aws_route53_zone.route53.zone_id
 }
+
