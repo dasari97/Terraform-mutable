@@ -1,4 +1,4 @@
-resource "aws_spot_instance_request" "rabbitmq" {
+/* resource "aws_spot_instance_request" "rabbitmq" {
   ami           = data.aws_ami.ami.id
   instance_type = var.rabbitmq_instance_type
   subnet_id     = data.terraform_remote_state.vpc.outputs.private_subnet_ids[0]
@@ -94,3 +94,6 @@ resource "null_resource" "rabbitmq" {
   
 }
 
+
+
+*/
