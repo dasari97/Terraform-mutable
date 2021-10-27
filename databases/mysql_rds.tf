@@ -69,7 +69,7 @@ resource "aws_db_instance" "mysql" {
 }*/
 
 output "a" {
-    value = aws_db_instance.mysql
+    value = aws_db_instance.mysql.Endpoint
     sensitive = true
 }
  
