@@ -59,3 +59,7 @@ resource "aws_db_instance" "mysql" {
   vpc_security_group_ids = [aws_security_group.mysql.id]
   identifier             = "mysql-${var.env}"
 }
+
+output "route" {
+    value = data.aws_route53_zone.Route53
+}

@@ -1,4 +1,4 @@
-resource "aws_elasticache_cluster" "redis" {
+/*resource "aws_elasticache_cluster" "redis" {
   cluster_id           = "redis-${var.env}"
   engine               = "redis"
   node_type            = "cache.t2.micro"
@@ -53,3 +53,4 @@ resource "aws_security_group" "redis" {
   }
 }
 
+*/
