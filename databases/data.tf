@@ -22,8 +22,11 @@ data "aws_secretsmanager_secret_version" "Dev_secret" {
   secret_id = data.aws_secretsmanager_secret.Dev_secret.id
 }
 
-data "aws_route53_zone" "Route53" {
+/*data "aws_route53_zone" "" {
   name         = "roboshop.krishna"
   private_zone = true
-}
+} */
 
+data "aws_route53_delegation_set" "Route53" {
+  id = "Z08749893F1W40G9363A2"
+}
