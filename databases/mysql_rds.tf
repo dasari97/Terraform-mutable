@@ -45,7 +45,7 @@ resource "aws_security_group" "mysql" {
   }
 }
 
-resource "aws_db_instance" "mysql-${var.env}" {
+resource "aws_db_instance" "mysql_${var.env}" {
   allocated_storage    = 10
   engine               = "mysql"
   engine_version       = "5.7"
