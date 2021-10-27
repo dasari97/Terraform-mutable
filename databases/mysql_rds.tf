@@ -53,7 +53,7 @@ resource "aws_db_instance" "mysql" {
   name                 = "terraform"
   username             = jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_id"]
   password             = jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_pass"]
-  parameter_group_name = "mysql5.7-${var.env}"
+  parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.mysql_subnets.name
   vpc_security_group_ids = [aws_security_group.mysql.id]
