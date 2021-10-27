@@ -70,5 +70,6 @@ resource "aws_db_instance" "mysql" {
 
 output "a" {
     value = aws_db_instance.mysql
+    sensitive = true
 }
  
