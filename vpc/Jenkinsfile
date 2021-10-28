@@ -7,6 +7,7 @@ pipeline {
         stage ('Terraform Apply') {
             steps {
                 sh '''
+                    cd vpc
                     make dev
                 '''
             }
