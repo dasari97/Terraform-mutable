@@ -1,6 +1,6 @@
 resource "aws_instance" "od_ins" {
     count = var.od_ins
-    ami   = data.aws_ami.ami,id
+    ami   = data.aws_ami.ami.id
     instance_type = var,instance_type
     subnet_id     = element(data.terraform_remote_state.vpc.outputs.private_subnet_ids, count.index)
     vpc_security_group_ids = [aws_security_group.app.id]
