@@ -26,7 +26,8 @@ resource "aws_spot_instance_request" "spot_ins" {
 }
 
 resource "aws_ec2_tag" "spot_ins" {
-  resource_id = aws_spot_instance_request.spot_ins.spot_instance_id
+  count       = var.spot_ins
+  resource_id = element(aws_spot_instance_request.spot_ins.spot_instance_id, count.index)
   key         = "Name"
   value       = "${var.component}-${var.env}"
 }
