@@ -12,9 +12,10 @@ resource "aws_instance" "od_ins" {
 }
 
 resource "aws_spot_instance_request" "spot_ins" {
+  count         = var.spot_ins
   ami           = data.aws_ami.ami.id
   instance_type = var.instance_type
-  subnet_id     = data.terraform_remote_state.vpc.outputs.private_subnet_ids[0]
+  subnet_id     = element(data.terraform_remote_state.vpc.outputs.private_subnet_ids, count.index)
   vpc_security_group_ids = [aws_security_group.app.id]
   wait_for_fulfillment   = true
   
@@ -25,7 +26,8 @@ resource "aws_spot_instance_request" "spot_ins" {
 }
 
 resource "aws_ec2_tag" "spot_ins" {
-  resource_id = aws_spot_instance_request.spot_ins.spot_instance_id
+  count     = spot_ins
+  resource_id = element(aws_spot_instance_request.spot_ins.*.spot_instance_id, count.index)
   key         = "Name"
   value       = "${var.component}-${var.env}"
 }
