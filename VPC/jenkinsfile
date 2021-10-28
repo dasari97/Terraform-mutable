@@ -16,7 +16,7 @@ pipeline {
 
 post {
     always {
-      disableDeferredWipeout: true
+      cleanWs()
     }
   }
 }
