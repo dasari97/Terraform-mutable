@@ -15,7 +15,7 @@ resource "aws_ec2_tag" "mongodb" {
   resource_id = aws_spot_instance_request.mongodb.spot_instance_id
   key         = "Name"
   value       = "Mongodb-${var.env}"
-}
+} */
 
 resource "aws_security_group" "mongodb" {
   name        = "mongodb-${var.env}"
@@ -67,6 +67,7 @@ resource "aws_security_group" "mongodb" {
   }
 }
 
+/*
 resource "null_resource" "mongodb" {
   #triggers = {
     #abc = timestamp()
