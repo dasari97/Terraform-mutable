@@ -8,7 +8,6 @@ pipeline {
             steps {
                 sh 'echo Hello'
                 sh 'cd VPC; make dev'
-                sh 'echo Hello'
             }
             
         }
