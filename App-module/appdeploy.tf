@@ -1,5 +1,5 @@
 resource "null_resource" "apps" {
-  count  = lenght(local.all_instance_ip)
+  count  = length(local.all_instance_ip)
   #triggers = {
     #abc = timestamp()
   #}
