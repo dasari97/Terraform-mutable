@@ -4,9 +4,9 @@ resource "null_resource" "apps" {
     #abc = timestamp()
   #}
   # remove comment's when you want to run the mongodb null resource
-  #triggers = {
+  triggers = {
    # abc = local.all_instance_ip
-  #}
+  }
   
   provisioner "remote-exec" {
     connection {
