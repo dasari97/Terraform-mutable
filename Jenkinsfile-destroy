@@ -17,7 +17,7 @@ pipeline {
                      }
                  }
                 
-                stage ('catalogue') {
+/*                stage ('catalogue') {
                      steps {
                          dir('catalogue') {
                              sh ''' 
@@ -75,7 +75,7 @@ pipeline {
                              '''
                          }
                      }
-                 }
+                 }*/
          }
         }
     }    
