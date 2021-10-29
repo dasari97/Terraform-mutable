@@ -1,4 +1,4 @@
-/*resource "aws_db_subnet_group" "mysql_subnets" {
+resource "aws_db_subnet_group" "mysql_subnets" {
   name       = "${var.env}-db_sb-mysql"
   subnet_ids = data.terraform_remote_state.vpc.outputs.private_subnet_ids
 
@@ -82,6 +82,6 @@ resource "null_resource" "MySQL" {
         
          EOT
     }
-}*/
+}
 
  

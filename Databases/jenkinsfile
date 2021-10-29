@@ -6,7 +6,8 @@ pipeline {
         
         stage ('Terraform Apply') {
             steps {
-                sh 'cd Databsaes; make dev'
+                /*sh 'cd Databsaes; make dev'*/
+                sh 'echo Hello'
             }
             
         }

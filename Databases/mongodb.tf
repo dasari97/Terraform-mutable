@@ -1,4 +1,4 @@
-/*resource "aws_spot_instance_request" "mongodb" {
+resource "aws_spot_instance_request" "mongodb" {
   ami           = data.aws_ami.ami.id
   instance_type = var.mongodb_instance_type
   subnet_id     = data.terraform_remote_state.vpc.outputs.private_subnet_ids[0]
@@ -67,7 +67,7 @@ resource "aws_security_group" "mongodb" {
   }
 }
 
-/*
+
 resource "null_resource" "mongodb" {
   #triggers = {
     #abc = timestamp()
@@ -103,4 +103,3 @@ resource "aws_route53_record" "mongodb" {
   records = [aws_spot_instance_request.mongodb.private_ip]
 }
 
-*/
