@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    
+    stages {
+        
+        
+        stage ('Terraform Apply') {
+            steps {
+                /*sh 'cd ALB; make dev'*/
+                sh 'echo Hello'
+            }
+            
+        }
+    }
+
+post {
+    always {
+      cleanWs disableDeferredWipeout: true
+    }
+  }
+}
