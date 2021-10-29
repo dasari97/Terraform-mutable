@@ -6,7 +6,7 @@ pipeline {
         
         stage ('Terraform Apply') {
             steps {
-                sh 'cd ALB; make dev'
+                sh 'cd ALB; make dev-destroy'
                 sh 'echo Hello'
             }
             
