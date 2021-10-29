@@ -2,7 +2,7 @@ resource "aws_lb" "Internal" {
   name               = "Internal-${var.env}"
   internal           = true
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.ALB_Internal_SG.id]
+  security_groups    = [aws_security_group.ALB_internal_SG.id]
   subnets            = data.terraform_remote_state.vpc.outputs.private_subnet_ids
 
   tags = {
