@@ -60,8 +60,8 @@ resource "aws_security_group" "app" {
     
     {
       description      = "8080 app port"
-      from_port        = 8080
-      to_port          = 8080
+      from_port        = var.port
+      to_port          = var.port
       protocol         = "tcp"
       cidr_blocks      = data.terraform_remote_state.vpc.outputs.vpc_cidr
       ipv6_cidr_blocks = []
