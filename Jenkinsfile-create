@@ -6,7 +6,7 @@ pipeline {
             steps {
                 dir('VPC') {
                      sh ''' 
-                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable
+                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable .
                         cd VPC
                         make dev
                      '''
