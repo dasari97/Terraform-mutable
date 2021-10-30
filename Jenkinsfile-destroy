@@ -28,7 +28,7 @@ pipeline {
                      steps {
                          dir('cart') {
                              sh ''' 
-                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart .
                                 cd Terraform-Mutable
                                 make dev-destroy
                              '''
@@ -40,7 +40,7 @@ pipeline {
                      steps {
                          dir('catalogue') {
                              sh ''' 
-                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue .
                                 cd Terraform-Mutable
                                 make dev-destroy
                              '''
@@ -52,7 +52,7 @@ pipeline {
                      steps {
                          dir('frontend') {
                              sh ''' 
-                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
                                 cd Terraform-Mutable
                                 make dev-destroy
                              '''
@@ -64,7 +64,7 @@ pipeline {
                      steps {
                          dir('user') {
                              sh ''' 
-                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user .
                                 cd Terraform-Mutable
                                 make dev-destroy
                              '''
@@ -76,7 +76,7 @@ pipeline {
                      steps {
                          dir('shipping') {
                              sh ''' 
-                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping .
                                 cd Terraform-Mutable
                                 make dev-destroy
                              '''
@@ -88,7 +88,7 @@ pipeline {
                      steps {
                          dir('payment') {
                              sh ''' 
-                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment .
                                 cd Terraform-Mutable
                                 make dev-destroy
                              '''
