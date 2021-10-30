@@ -2,6 +2,31 @@ pipeline {
     agent any
     
     stages {
+        stage ('VPC_Destroy') {
+            steps {
+                dir('VPC') {
+                     sh ''' 
+                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable
+                        cd VPC
+                        make dev-destroy
+                     '''
+                 }
+             }
+                 
+        }
+        
+        stage ('Databases_Destroy') {
+            steps {
+                dir('Databases') {
+                     sh ''' 
+                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable
+                        cd Databases
+                        make dev-destroy
+                     '''
+                 }
+             }
+                 
+        }
         
         stage ('APP_Destory') {
              parallel {
@@ -17,7 +42,7 @@ pipeline {
                      }
                  }
                 
-/*                stage ('catalogue') {
+               stage ('catalogue') {
                      steps {
                          dir('catalogue') {
                              sh ''' 
@@ -75,8 +100,13 @@ pipeline {
                              '''
                          }
                      }
-                 }*/
-         }
+                 }
+          }
         }
-    }    
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }
