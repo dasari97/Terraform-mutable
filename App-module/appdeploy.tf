@@ -1,8 +1,8 @@
 resource "null_resource" "apps" {
   count  = length(local.all_instance_ip)
-  #triggers = {
-    #abc = timestamp()
-  #}
+  triggers = {
+    abc = timestamp()
+  }
   # remove comment's when you want to run the mongodb null resource
   #triggers = {
    # abc = local.all_instance_ip
@@ -20,7 +20,7 @@ resource "null_resource" "apps" {
       "sudo yum install python3-pip -y",
       "sudo pip3 install pip --upgrade",
       "sudo pip3 install ansible==4.1.0",
-      "ansible-pull -i localhost -U https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/ansible-roboshop.git roboshop-pull.yml -e COMPONENT=${var.component} -e ENV=${var.component}"
+      "ansible-pull -i localhost -U https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/ansible-roboshop.git roboshop-pull.yml -e COMPONENT=${var.component} -e ENV=${var.env}"
     ]
   }
   
