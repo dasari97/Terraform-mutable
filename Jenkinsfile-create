@@ -4,12 +4,10 @@ pipeline {
     stages {
         stage ('VPC') {
             steps {
-                dir('VPC') {
-                     sh ''' 
+                 sh ''' 
                         cd VPC
                         make dev
                      '''
-                 }
              }
                  
         }
