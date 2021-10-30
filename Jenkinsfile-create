@@ -8,7 +8,7 @@ pipeline {
                      sh ''' 
                         git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable
                         cd VPC
-                        make dev-destroy
+                        make dev
                      '''
                  }
              }
