@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage ('VPC_Destroy') {
+        stage ('VPC') {
             steps {
                 dir('VPC') {
                      sh ''' 
