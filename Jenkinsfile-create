@@ -1,0 +1,112 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage ('VPC_Destroy') {
+            steps {
+                dir('VPC') {
+                     sh ''' 
+                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable
+                        cd VPC
+                        make dev-destroy
+                     '''
+                 }
+             }
+                 
+        }
+        
+       /* stage ('Databases_Destroy') {
+            steps {
+                dir('Databases') {
+                     sh ''' 
+                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable
+                        cd Databases
+                        make dev-destroy
+                     '''
+                 }
+             }
+                 
+        }
+        
+        stage ('APP_Destory') {
+             parallel {
+                 stage ('cart') {
+                     steps {
+                         dir('cart') {
+                             sh ''' 
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart
+                                cd Terraform-Mutable
+                                make dev-destroy
+                             '''
+                         }
+                     }
+                 }
+                
+               stage ('catalogue') {
+                     steps {
+                         dir('catalogue') {
+                             sh ''' 
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue
+                                cd Terraform-Mutable
+                                make dev-destroy
+                             '''
+                         }
+                     }
+                 }
+                 
+                 stage ('frontend') {
+                     steps {
+                         dir('frontend') {
+                             sh ''' 
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend
+                                cd Terraform-Mutable
+                                make dev-destroy
+                             '''
+                         }
+                     }
+                 }
+                 
+                 stage ('user') {
+                     steps {
+                         dir('user') {
+                             sh ''' 
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user
+                                cd Terraform-Mutable
+                                make dev-destroy
+                             '''
+                         }
+                     }
+                 }
+                 
+                 stage ('shipping') {
+                     steps {
+                         dir('shipping') {
+                             sh ''' 
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping
+                                cd Terraform-Mutable
+                                make dev-destroy
+                             '''
+                         }
+                     }
+                 }
+                 
+                 stage ('payment') {
+                     steps {
+                         dir('payment') {
+                             sh ''' 
+                                git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment
+                                cd Terraform-Mutable
+                                make dev-destroy
+                             '''
+                         }
+                     }
+                 }
+          }
+        }*/
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
