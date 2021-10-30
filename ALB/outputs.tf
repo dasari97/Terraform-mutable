@@ -1,5 +1,5 @@
 output "LB_INTERNAL_NAME" {
-    value = aws_lb.internal.dns_name
+    value = aws_lb.Internal.dns_name
 }
 
 output "LB_PUBLIC_NAME" {
