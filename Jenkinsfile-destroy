@@ -12,7 +12,7 @@ pipeline {
                  
         }
         
-        stage ('Databases_Destroy') {
+/*        stage ('Databases_Destroy') {
             steps {
                      sh '''
                         cd Databases
@@ -34,7 +34,7 @@ pipeline {
                              '''
                          }
                      }
-                 }
+                 } */
                 
                stage ('catalogue') {
                      steps {
@@ -48,7 +48,7 @@ pipeline {
                      }
                  }
                  
-                 stage ('frontend') {
+/*                 stage ('frontend') {
                      steps {
                          dir('frontend') {
                              sh ''' 
@@ -94,7 +94,7 @@ pipeline {
                              '''
                          }
                      }
-                 }
+                 }*/
           }
         } 
     }
