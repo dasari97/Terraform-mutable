@@ -14,13 +14,10 @@ pipeline {
         
        /* stage ('Databases_Destroy') {
             steps {
-                dir('Databases') {
                      sh ''' 
-                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable
                         cd Databases
                         make dev-destroy
                      '''
-                 }
              }
                  
         }
