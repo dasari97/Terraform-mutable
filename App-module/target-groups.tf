@@ -22,7 +22,7 @@ resource "aws_lb_target_group_attachment" "instanceAttach" {
 }
 
 resource "aws_lb_listener_rule" "LB_IN_RULES" {
-  count   = var.is_internal == "true" ? 1 : 0
+ count   = var.is_internal == "true" ? 1 : 0
   listener_arn = data.terraform_remote_state.ALB.outputs.Internal-Listener
   priority     = var.priority
 

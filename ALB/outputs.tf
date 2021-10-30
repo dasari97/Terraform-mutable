@@ -9,3 +9,7 @@ output "LB_PUBLIC_NAME" {
 output "Internal-Listener" {
     value = aws_lb_listener.Internal-Listener.arn
 }
+
+output "Public-LB-ARN" {
+    value = aws_lb.public.arn
+}
