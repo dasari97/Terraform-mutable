@@ -5,3 +5,7 @@ output "LB_INTERNAL_NAME" {
 output "LB_PUBLIC_NAME" {
     value = aws_lb.public.dns_name
 }
+
+output "Internal-Listener" {
+    value = aws_lb_listener.Internal-Listener.arn
+}

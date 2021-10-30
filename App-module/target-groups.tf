@@ -20,3 +20,19 @@ resource "aws_lb_target_group_attachment" "instanceAttach" {
   target_id        = element(local.all_instance_id, count.index)
   port             = var.port
 }
+
+resource "aws_lb_listener_rule" "LB_IN_RULES" {
+  listener_arn = data.terraform_remote_state.ALB.outputs.Internal-Listener
+  priority     = var.priority
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.target-group.arn
+  }
+
+  condition {
+    host_header {
+      values = ["${var.component}-${var.env}.krishna.roboshop"]
+    }
+  }
+}
