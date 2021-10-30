@@ -1,4 +1,4 @@
-variable "ABD" {
+/*variable "ABD" {
     default = ABC
 }
 
