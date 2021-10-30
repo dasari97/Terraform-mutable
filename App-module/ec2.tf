@@ -7,6 +7,7 @@ resource "aws_instance" "od_ins" {
     
     tags = {
     Name = "${var.component}-${var.env}"
+    Monitor = "yes"
   }
     
 }
@@ -30,6 +31,13 @@ resource "aws_ec2_tag" "spot_ins" {
   resource_id = element(aws_spot_instance_request.spot_ins.*.spot_instance_id, count.index)
   key         = "Name"
   value       = "${var.component}-${var.env}"
+}
+
+resource "aws_ec2_tag" "spot_ins_tag" {
+  count       = var.spot_count
+  resource_id = element(aws_spot_instance_request.spot_ins.*.spot_instance_id, count.index)
+  key         = "Monitor"
+  value       = "yes"
 }
 
 resource "aws_security_group" "app" {
@@ -59,6 +67,18 @@ resource "aws_security_group" "app" {
       ipv6_cidr_blocks = []
       prefix_list_ids  = []
       self             = false
+      security_groups  = []
+    },
+    
+     {
+      description      = "PROMETHEUS"
+      from_port        = 9100
+      to_port          = 9100
+      protocol         = "tcp"
+      cidr_blocks      = local.all_vpc_cidr
+      ipv6_cidr_blocks = []
+      self             = false
+      prefix_list_ids  = []
       security_groups  = []
     }
   ]
