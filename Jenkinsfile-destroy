@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        /*stage ('VPC_Destroy') {
+        stage ('VPC_Destroy') {
             steps {
                      sh ''' 
                         cd VPC
@@ -10,7 +10,7 @@ pipeline {
                      '''
              }
                  
-        }*/
+        }
         
         stage ('Databases_Destroy') {
             steps {
@@ -22,7 +22,7 @@ pipeline {
                  
         }
         
-/*        stage ('APP_Destory') {
+        stage ('APP_Destory') {
              parallel {
                  stage ('cart') {
                      steps {
@@ -96,7 +96,7 @@ pipeline {
                      }
                  }
           }
-        } */
+        } 
     }
     post {
         always {
