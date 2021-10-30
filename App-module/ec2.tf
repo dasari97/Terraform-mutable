@@ -34,7 +34,7 @@ resource "aws_ec2_tag" "spot_ins" {
 }
 
 resource "aws_ec2_tag" "spot_ins_tag" {
-  count       = var.spot_count
+  count       = var.spot_ins
   resource_id = element(aws_spot_instance_request.spot_ins.*.spot_instance_id, count.index)
   key         = "Monitor"
   value       = "yes"
