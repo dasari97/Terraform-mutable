@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage ('VPC_Destroy') {
+        /*stage ('VPC_Destroy') {
             steps {
                 dir('VPC') {
                      sh ''' 
@@ -13,7 +13,7 @@ pipeline {
                  }
              }
                  
-        }
+        }*/
         
         stage ('Databases_Destroy') {
             steps {
