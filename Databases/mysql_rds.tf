@@ -68,7 +68,7 @@ resource "aws_route53_record" "mysql" {
   records = [aws_db_instance.mysql.endpoint]
 }
 
-/*resource "null_resource" "MySQL" {
+resource "null_resource" "MySQL" {
 depends_on = [aws_route53_record.mysql]
 #triggers = {
  #   A = timestamp()
@@ -83,6 +83,6 @@ depends_on = [aws_route53_record.mysql]
         
          EOT
     }
-}*/
+}
 
  
