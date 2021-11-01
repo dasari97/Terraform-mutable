@@ -2,7 +2,6 @@ pipeline {
     agent any
     
     stages {
-        
         stage ('APP_Destory') {
              parallel {
                  stage ('cart') {

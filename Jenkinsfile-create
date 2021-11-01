@@ -32,7 +32,7 @@ pipeline {
                  
         }
         
-        stage ('APP_create') {
+/*        stage ('APP_create') {
              parallel {
                  stage ('cart') {
                      steps {
@@ -106,7 +106,7 @@ pipeline {
                  '''
                  }
              }
-         }
+         } */
     }   
     post {
         always {
