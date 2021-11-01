@@ -96,7 +96,7 @@ pipeline {
       steps {
         sh '''
         cd VPC 
-        terraform init -backend-config=env/dev-backend.tfvars -no-color
+        terraform init -backend-config=env/dev_backend.tfvars -no-color
         terraform destroy -target=aws_nat_gateway.ngw -var-file=env/dev.tfvars  -auto-approve
         '''
       }
