@@ -1,4 +1,4 @@
-/*resource "aws_db_subnet_group" "mysql_subnets" {
+resource "aws_db_subnet_group" "mysql_subnets" {
   name       = "${var.env}-db_sb-mysql"
   subnet_ids = data.terraform_remote_state.vpc.outputs.private_subnet_ids
 
@@ -68,7 +68,7 @@ resource "aws_route53_record" "mysql" {
   records = [aws_db_instance.mysql.endpoint]
 }
 
-resource "null_resource" "MySQL" {
+/*resource "null_resource" "MySQL" {
 depends_on = [aws_route53_record.mysql]
 #triggers = {
  #   A = timestamp()
@@ -83,6 +83,6 @@ depends_on = [aws_route53_record.mysql]
         
          EOT
     }
-}
+}*/
 
  
