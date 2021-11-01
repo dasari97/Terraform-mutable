@@ -10,7 +10,6 @@ pipeline {
             dir('cart') {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart .
-                ls -ltr
                 cd Terraform-Mutable
                 make dev-destroy
               '''
@@ -23,7 +22,6 @@ pipeline {
             dir('catalogue') {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue  .
-                ls -ltr
                 cd Terraform-Mutable
                 make dev-destroy
               '''
@@ -36,7 +34,6 @@ pipeline {
             dir('frontend') {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
-                ls -ltr
                 cd Terraform-Mutable
                 make dev-destroy
               '''
@@ -49,7 +46,6 @@ pipeline {
             dir('payment') {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment .
-                ls -ltr
                 cd Terraform-Mutable
                 make dev-destroy
               '''
@@ -62,7 +58,6 @@ pipeline {
             dir('shipping') {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping .
-                ls -ltr
                 cd Terraform-Mutable
                 make dev-destroy
               '''
@@ -75,7 +70,6 @@ pipeline {
             dir('user') {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user .
-                ls -ltr
                 cd Terraform-Mutable
                 make dev-destroy
               '''

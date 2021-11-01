@@ -93,20 +93,21 @@ pipeline {
                          }
                      }
                  }
-          }
-    }
-    
-    stage ('frontend') {
-         steps {
-             dir('frontend') {
-                 sh ''' 
-                    git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
-                    cd Terraform-Mutable
-                    make dev
-                 '''
+                 stage ('frontend') {
+                    steps {
+                        dir('frontend') {
+                          sh ''' 
+                            git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
+                            cd Terraform-Mutable
+                            make dev
+                         '''
                  }
              }
-         } 
+         }
+      }
+    }
+    
+     
     }   
     post {
         always {
