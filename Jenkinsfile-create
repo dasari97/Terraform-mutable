@@ -12,17 +12,27 @@ pipeline {
                  
         }
         
-        stage ('Databases_Destroy') {
+        stage ('Databases_Create') {
             steps {
                      sh ''' 
                         cd Databases
-                        make dev-destroy
+                        make dev
                      '''
              }
                  
         }
         
-        stage ('APP_Destory') {
+        stage ('LB_Create') {
+            steps {
+                     sh ''' 
+                        cd ALB
+                        make dev
+                     '''
+             }
+                 
+        }
+        
+        stage ('APP_create') {
              parallel {
                  stage ('cart') {
                      steps {
@@ -30,7 +40,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart .
                                 cd Terraform-Mutable
-                                make dev-destroy
+                                make dev
                              '''
                          }
                      }
@@ -42,7 +52,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue .
                                 cd Terraform-Mutable
-                                make dev-destroy
+                                make dev
                              '''
                          }
                      }
@@ -54,7 +64,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
                                 cd Terraform-Mutable
-                                make dev-destroy
+                                make dev
                              '''
                          }
                      }
@@ -66,7 +76,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user .
                                 cd Terraform-Mutable
-                                make dev-destroy
+                                make dev
                              '''
                          }
                      }
@@ -78,7 +88,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping .
                                 cd Terraform-Mutable
-                                make dev-destroy
+                                make dev
                              '''
                          }
                      }
@@ -90,7 +100,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment .
                                 cd Terraform-Mutable
-                                make dev-destroy
+                                make dev
                              '''
                          }
                      }
