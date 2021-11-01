@@ -65,7 +65,7 @@ resource "aws_route53_record" "mysql" {
   name    = "mysql-${var.env}.krishna.roboshop"
   type    = "CNAME"
   ttl     = "300"
-  records = [aws_db_instance.mysql.endpoint]
+  records = [aws_db_instance.mysql.address]
 }
 
 resource "null_resource" "MySQL" {
@@ -79,11 +79,12 @@ depends_on = [aws_route53_record.mysql]
             cd /tmp
             unzip mysql.zip
             cd mysql-main
-            mysql -h mysql-dev.krishna.roboshop -u ${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_id"]} -p${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_pass"]} <shipping.sql
+            mysql -h mysql-${var.env}.krishna.roboshop -u ${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_id"]} -p${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_pass"]} <shipping.sql
         
          EOT
     }
 }
 
  
-/*mysql-${var.env}.krishna.roboshop*/
+/*mysql-${var.env}.krishna.roboshop
+mysql-dev.krishna.roboshop*/
