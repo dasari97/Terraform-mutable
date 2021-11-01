@@ -85,7 +85,7 @@ pipeline {
         stage('ALB') {
           steps {
             sh '''
-            cd alb; make dev-destroy
+            cd ALB; make dev-destroy
             '''
           }
         }
