@@ -2,25 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage ('VPC_Destroy') {
-            steps {
-                     sh ''' 
-                        cd VPC
-                        make dev-destroy
-                     '''
-             }
-                 
-        }
-        
-/*        stage ('Databases_Destroy') {
-            steps {
-                     sh '''
-                        cd Databases
-                        make dev-destroy
-                     '''
-             }
-                 
-        }
         
         stage ('APP_Destory') {
              parallel {
@@ -34,7 +15,7 @@ pipeline {
                              '''
                          }
                      }
-                 } */
+                 } 
                 
                stage ('catalogue') {
                      steps {
@@ -48,7 +29,7 @@ pipeline {
                      }
                  }
                  
-/*                 stage ('frontend') {
+                 stage ('frontend') {
                      steps {
                          dir('frontend') {
                              sh ''' 
@@ -94,12 +75,34 @@ pipeline {
                              '''
                          }
                      }
-                 }*/
+                 }
           }
+          
+          stage ('VPC_Destroy') {
+            steps {
+                     sh ''' 
+                        cd VPC
+                        make dev-destroy
+                     '''
+             }
+                 
+        }
+        
+        stage ('Databases_Destroy') {
+            steps {
+                     sh '''
+                        cd Databases
+                        make dev-destroy
+                     '''
+             }
+                 
+        }
+      }    
     
-    post {
-        always {
-            cleanWs()
+    }
+post {
+    always {
+        cleanWs()
         }
     }
 }
