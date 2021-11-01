@@ -69,9 +69,9 @@ resource "aws_security_group" "mongodb" {
 
 
 resource "null_resource" "mongodb" {
-  triggers = {
-    abc = timestamp()
-  }
+  #triggers = {
+    #abc = timestamp()
+  #}
   # remove comment's when you want to run the mongodb null resource
   #triggers = {
    # abc = aws_spot_instance_request.mongodb.private_ip
