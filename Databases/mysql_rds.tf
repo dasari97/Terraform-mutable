@@ -79,7 +79,7 @@ depends_on = [aws_route53_record.mysql]
             cd /tmp
             unzip mysql.zip
             cd mysql-main
-            mysql -h mysql-${var.env}.krishna.roboshop -u ${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_id"]} -p${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_pass"]} <shipping.sql
+            mysql -h mysql-dev.krishna.roboshop -u ${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_id"]} -p${jsondecode(data.aws_secretsmanager_secret_version.Dev_secret.secret_string)["mysql_pass"]} <shipping.sql
         
          EOT
     }
