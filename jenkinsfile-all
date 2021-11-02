@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    
+    parameters {
+        string(name: 'ENV', defaultValue: '', description: 'Deployment Environment')
+        string(name: 'COMPONENT', defaultValue: '', description: 'Which COMPONENT to deploy?')
+        string(name: 'APP_VERSION', defaultValue: '', description: 'Which version to deploy?')
+    }
+    
+    stages{
+        stage ('Set text') {
+            steps {
+                script {
+                    if("${ENV}" == "dev"){
+                    COLORCODE="orange"
+                    } else {
+                    COLORCODE="green"
+                    }
+                    addShortText background: "${COLORCODE}", color: 'black', borderColor: 'yellow', text: "${COMPONENT}"
+                    addShortText background: "${COLORCODE}", color: 'black', borderColor: 'yellow', text: "${APP_VERSION}"
+                    addShortText background: "${COLORCODE}", color: 'black', borderColor: 'yellow', text: "${ENV}"
+                }
+         }
+    }
+        
+        stage ('Deployment') {
+            steps {
+                dir('APP') {
+                    sh ''' 
+                        git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/${COMPONENT} .
+                        cd terraform-mutable
+                        export TF_VAR_APP_VERSION=${APP_VERSION}
+                        make ${ENV}
+                        
+                        
+                    '''    
+                }
+            }
+        }
+    }
+ post {
+     always {
+        cleanWs() 
+     }
+  }
+}
