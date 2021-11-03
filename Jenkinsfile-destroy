@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  
+  parameters {
+        string(name: 'ENV', defaultValue: '', description: 'Deployment Environment')
+    }
+  
   stages {
         stage('cart') {
           steps {
@@ -7,7 +12,7 @@ pipeline {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart .
                 cd Terraform-Mutable
-                make dev-destroy
+                make ${ENV}-destroy
               '''
             }
           }
@@ -19,7 +24,7 @@ pipeline {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue  .
                 cd Terraform-Mutable
-                make dev-destroy
+                make ${ENV}-destroy
               '''
             }
           }
@@ -31,7 +36,7 @@ pipeline {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
                 cd Terraform-Mutable
-                make dev-destroy
+                make ${ENV}-destroy
               '''
             }
           }
@@ -43,7 +48,7 @@ pipeline {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment .
                 cd Terraform-Mutable
-                make dev-destroy
+                make ${ENV}-destroy
               '''
             }
           }
@@ -55,7 +60,7 @@ pipeline {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping .
                 cd Terraform-Mutable
-                make dev-destroy
+                make ${ENV}-destroy
               '''
             }
           }
@@ -67,7 +72,7 @@ pipeline {
               sh '''
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user .
                 cd Terraform-Mutable
-                make dev-destroy
+                make ${ENV}-destroy
               '''
             }
           }
@@ -78,14 +83,14 @@ pipeline {
         stage('DB') {
           steps {
             sh '''
-            cd Databases; make dev-destroy
+            cd Databases; make ${ENV}-destroy
             '''
           }
         }
         stage('ALB') {
           steps {
             sh '''
-            cd ALB; make dev-destroy
+            cd ALB; make ${ENV}-destroy
             '''
           }
         }
@@ -96,8 +101,8 @@ pipeline {
       steps {
         sh '''
         cd VPC 
-        terraform init -backend-config=env/dev_backend.tfvars -no-color
-        terraform destroy -target=aws_nat_gateway.ngw -var-file=env/dev.tfvars  -auto-approve
+        terraform init -backend-config=env/${ENV}_backend.tfvars -no-color
+        terraform destroy -target=aws_nat_gateway.ngw -var-file=env/${ENV}.tfvars  -auto-approve
         '''
       }
     }
