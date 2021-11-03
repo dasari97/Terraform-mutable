@@ -1,8 +1,8 @@
 resource "null_resource" "apps" {
   count  = length(local.all_instance_ip)
-  triggers = {
-    abc = timestamp()
-  }
+  #triggers = {
+    #abc = timestamp()
+  #}
   # remove comment's when you want to run the mongodb null resource
   #triggers = {
    # abc = local.all_instance_ip
