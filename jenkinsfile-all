@@ -28,7 +28,7 @@ pipeline {
                 dir('APP') {
                     sh ''' 
                         git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/${COMPONENT} .
-                        cd terraform-mutable
+                        cd Terraform-Mutable
                         export TF_VAR_APP_VERSION=${APP_VERSION}
                         make ${ENV}
                         
