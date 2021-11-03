@@ -9,11 +9,11 @@ pipeline {
         stage('cart') {
           steps {
             dir('cart') {
-              sh '''
+              sh """
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart .
                 cd Terraform-Mutable
                 make ${ENV}-destroy
-              '''
+              """
             }
           }
         }
@@ -21,11 +21,11 @@ pipeline {
         stage('catalogue') {
           steps {
             dir('catalogue') {
-              sh '''
+              sh """
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue  .
                 cd Terraform-Mutable
                 make ${ENV}-destroy
-              '''
+              """
             }
           }
         }
@@ -33,11 +33,11 @@ pipeline {
         stage('frontend') {
           steps {
             dir('frontend') {
-              sh '''
+              sh """
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
                 cd Terraform-Mutable
                 make ${ENV}-destroy
-              '''
+              """
             }
           }
         }
@@ -45,11 +45,11 @@ pipeline {
         stage('payment') {
           steps {
             dir('payment') {
-              sh '''
+              sh """
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment .
                 cd Terraform-Mutable
                 make ${ENV}-destroy
-              '''
+              """
             }
           }
         }
@@ -57,11 +57,11 @@ pipeline {
         stage('shipping') {
           steps {
             dir('shipping') {
-              sh '''
+              sh """
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping .
                 cd Terraform-Mutable
                 make ${ENV}-destroy
-              '''
+              """
             }
           }
         }
@@ -69,11 +69,11 @@ pipeline {
         stage('user') {
           steps {
             dir('user') {
-              sh '''
+              sh """
                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user .
                 cd Terraform-Mutable
                 make ${ENV}-destroy
-              '''
+              """
             }
           }
         }
@@ -82,16 +82,16 @@ pipeline {
       parallel {
         stage('DB') {
           steps {
-            sh '''
+            sh """
             cd Databases; make ${ENV}-destroy
-            '''
+            """
           }
         }
         stage('ALB') {
           steps {
-            sh '''
+            sh """
             cd ALB; make ${ENV}-destroy
-            '''
+            """
           }
         }
       }
@@ -99,11 +99,11 @@ pipeline {
 
     stage('VPC') {
       steps {
-        sh '''
+        sh """
         cd VPC 
         terraform init -backend-config=env/${ENV}_backend.tfvars -no-color
         terraform destroy -target=aws_nat_gateway.ngw -var-file=env/${ENV}.tfvars  -auto-approve
-        '''
+        """
       }
     }
 
