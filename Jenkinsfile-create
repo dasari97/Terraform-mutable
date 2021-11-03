@@ -36,9 +36,7 @@ pipeline {
                  
         }
         
-        stage ('APP_create') {
-             parallel {
-                 stage ('cart') {
+        stage ('cart') {
                      steps {
                          dir('cart') {
                              sh ''' 
@@ -50,7 +48,7 @@ pipeline {
                      }
                  }
                 
-               stage ('catalogue') {
+        stage ('catalogue') {
                      steps {
                          dir('catalogue') {
                              sh ''' 
@@ -62,7 +60,7 @@ pipeline {
                      }
                  }
                  
-                 stage ('user') {
+        stage ('user') {
                      steps {
                          dir('user') {
                              sh ''' 
@@ -74,7 +72,7 @@ pipeline {
                      }
                  }
                  
-                 stage ('shipping') {
+        stage ('shipping') {
                      steps {
                          dir('shipping') {
                              sh ''' 
@@ -86,7 +84,7 @@ pipeline {
                      }
                  }
                  
-                 stage ('payment') {
+        stage ('payment') {
                      steps {
                          dir('payment') {
                              sh ''' 
@@ -97,7 +95,7 @@ pipeline {
                          }
                      }
                  }
-                 stage ('frontend') {
+        stage ('frontend') {
                     steps {
                         dir('frontend') {
                           sh ''' 
@@ -108,8 +106,6 @@ pipeline {
                  }
              }
          }
-      }
-    }
     
      
     }   
