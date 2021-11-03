@@ -13,3 +13,8 @@ output "Internal-Listener" {
 output "Public-LB-ARN" {
     value = aws_lb.public.arn
 }
+
+data "aws_route53_zone" "DNS" {
+  name         = "dasariroboshop.online"
+  private_zone = false
+}

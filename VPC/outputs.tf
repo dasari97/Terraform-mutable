@@ -33,3 +33,7 @@ output "default_vpc_cidr" {
 output "private_hosted_zone_id" {
     value = data.aws_route53_zone.route53.zone_id
 }
+
+output "public_hosted_zone_id" {
+    value = data.aws_route53_zone.DNS.zone_id
+}
