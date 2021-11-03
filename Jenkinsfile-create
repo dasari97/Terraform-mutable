@@ -1,12 +1,16 @@
 pipeline {
     agent any
     
+    parameters {
+        string(name: 'ENV', defaultValue: '', description: 'Deployment Environment')
+    }
+    
     stages {
         stage ('VPC') {
             steps {
                  sh ''' 
                         cd VPC
-                        make dev
+                        make {{ENV}}
                      '''
              }
                  
@@ -16,7 +20,7 @@ pipeline {
             steps {
                      sh ''' 
                         cd Databases
-                        make dev
+                        make {{ENV}}
                      '''
              }
                  
@@ -26,7 +30,7 @@ pipeline {
             steps {
                      sh ''' 
                         cd ALB
-                        make dev
+                        make {{ENV}}
                      '''
              }
                  
@@ -40,7 +44,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/cart .
                                 cd Terraform-Mutable
-                                make dev
+                                make {{ENV}}
                              '''
                          }
                      }
@@ -52,7 +56,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/catalogue .
                                 cd Terraform-Mutable
-                                make dev
+                                make {{ENV}}
                              '''
                          }
                      }
@@ -64,7 +68,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/user .
                                 cd Terraform-Mutable
-                                make dev
+                                make {{ENV}}
                              '''
                          }
                      }
@@ -76,7 +80,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/shipping .
                                 cd Terraform-Mutable
-                                make dev
+                                make {{ENV}}
                              '''
                          }
                      }
@@ -88,7 +92,7 @@ pipeline {
                              sh ''' 
                                 git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/payment .
                                 cd Terraform-Mutable
-                                make dev
+                                make {{ENV}}
                              '''
                          }
                      }
@@ -99,7 +103,7 @@ pipeline {
                           sh ''' 
                             git clone https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/frontend .
                             cd Terraform-Mutable
-                            make dev
+                            make {{ENV}}
                          '''
                  }
              }
