@@ -70,9 +70,9 @@ resource "aws_route53_record" "mysql" {
 
 resource "null_resource" "MySQL" {
 depends_on = [aws_route53_record.mysql]
-triggers = {
-    A = timestamp()
-}
+#triggers = {
+    #A = timestamp()
+#}
     provisioner "local-exec" {
         command = <<EOT
             curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
